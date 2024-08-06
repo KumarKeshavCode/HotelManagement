@@ -1,6 +1,6 @@
 //class for hotel.ts
 
-class Hotel{
+export class Hotel{
     name: string;
     id: string;
     rooms: number;
