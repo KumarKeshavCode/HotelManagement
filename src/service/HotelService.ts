@@ -8,25 +8,50 @@ export class HotelService {
         this.hotels.push(hotel);
         console.log(this.hotels);
     }
+
+    
      
     displayHotels(): void {
+        //console.log(this.hotels);
+        
         console.log('List of Hotels:');
+       // console.log(this.hotels);
+
         
         this.hotels.forEach((hotel) => {
-            console.log(this.hotel);
+           // console.log(hotel);
             console.log(`Hotel ID: ${hotel.id}, Name: ${hotel.name}, Rooms: ${hotel.rooms}`);
         });
     }
 
-    bookHotel(hotelId: string, date: string): void {
+
+
+    bookHotel(hotelId: string): void {
         const hotel = this.hotels.find((h) => h.id === hotelId);
         if (hotel) {
-            console.log(`Booking hotel ${hotel.name} on ${date}`);
-            // Add your booking logic here
+            if (hotel.rooms > 0) {
+                console.log(`Booking hotel ${hotel.name}`);
+                // Add your booking logic here
+                hotel.rooms--;
+            } else {
+                console.log(`Hotel ${hotel.name} is fully booked.`);
+            }
         } else {
             console.log(`Hotel with ID ${hotelId} not found.`);
         }
     }
+
+
+
+    // bookHotel(hotelId: string): void {
+    //     const hotel = this.hotels.find((h) => h.id === hotelId);
+    //     if (hotel) {
+    //         console.log(`Booking hotel ${hotel.name} on ${id}`);
+    //         // Add your booking logic here
+    //     } else {
+    //         console.log(`Hotel with ID ${hotelId} not found.`);
+    //     }
+    // }
 
    
 }
